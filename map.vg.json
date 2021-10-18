@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "Schools and staff for early education in 2018",
+    "projection": {"type": "mercator"},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/js/A2%20topo.json",
+          "format": {"type": "topojson", "feature": "SA4_2021_AUST_GDA2020"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/data/edited.csv"
+        },
+        
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "text": {"field": "state", "type": "nominal"},
+          "size": {
+            "field": "Number of schools",
+            "type": "quantitative",
+            "scale": {"domain": [100, 3200]}
+          },
+          "color": {
+            "field": "School staff",
+            "type": "quantitative",
+            "scale": {"scheme": "reds"}
+          },
+          "tooltip": [
+            {"field": "state", "type": "nominal"},
+            {"field": "Number of schools", "type": "quantitative", "format": ","},
+            {"field": "School staff", "type": "quantitative", "format": ","}
+            ]
+        }
+      }
+    ]
+  }
