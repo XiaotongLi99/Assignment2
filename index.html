@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FIT3179 Data Visualisation 2</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body class="align-content-center" style="background-color:#f0edead2;">
+
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1 style="background-color:#ec91a5;font-family:San-series;color:black;font-size:40px;text-align:center;">FIT3179 Data Visualisation 2</h1>
+        <p style="text-align: center;">This visualization demonstrates information about primary and secondary education in Australia.</p>
+
+        
+        
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis1"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+            <div style="color: rgba(241, 63, 63, 0.418);">
+                <h2>Schools and Staff Allocation</h2>
+            </div>
+            <p>The <b style="color:rgba(241, 63, 63, 0.418);">symbol map</b> gives an illustration of the number of schools and their staff in all states over Australia.
+                <br><br>The <b style="color:rgb(202, 43, 43);">brightness</b> of red determines the number of school staff. And the size of red determines the number of schools.
+                <br><br>The <b style="color:rgb(202, 43, 43);">annotation</b> of the states name is presented next to the dot. 
+                <br><br>The information about specific dot including the state, the number of schools and the number of schools staff can be examined by generating a <b style="color:rgb(202, 43, 43);">tooltip</b> when hovering over a red dot. 
+                <br><br>The graph shows that education resources are mainly focus on the three states, which are <b style="color:rgba(139, 62, 62, 0.973);">New South Wales, Victoria and Queensland</b>. New South Wales has the most resourceful teaching supplies that the schools and the staff are concentrated around this state.</p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <br>
+    <br>
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis2"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+            <div style="color: rgb(142, 199, 69);">
+                <h2>Number of Enrolled Students</h2>
+            </div>
+            <p>The <b style="color:rgba(241, 63, 63, 0.418);">stacked bar chart</b> shows that the number of enrolled student in all primary and secondary schools by states in Australia from 2009 to 2018.
+                <br><br>The <b style="color:rgb(202, 43, 43);">filter</b> right below the graph can be used to filter out enrolled students by states to remove some of the states in the data and only show the specific one to visualize.
+                <br><br>When hovering over a bar, a <b style="color:rgb(202, 43, 43);">tooltip</b> will be generated to show the relevant information of that particular bar. 
+                <br><br>Fluctuations are <b style="color:rgb(142, 199, 69);">minimal</b> in each state, with enrollment students numbers varying by a <b style="color:rgb(142, 199, 69);">small</b> amount from year to year. Overall, there is a <b style="color:rgb(142, 199, 69);">slight upward</b> trend for the enrolled students in all primary and secondary schools from 2009 to 2018. Parents and children have valued primary and secondary education at about the same level within the last decade.</p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+    <br>
+    <br>
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis3"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-left">
+            <div style="color: rgba(5, 143, 161, 0.548);">
+                <h2>Number of Enrolled Students in Government Schools</h2>
+            </div>
+            <p>The <b style="color:rgba(5, 143, 161, 0.548);">line chart</b> demonstrates the trend of the number of enrolled students in government schools by each state in Australia over years.
+                <br><br>When hovering over a bar, a <b style="color:rgb(202, 43, 43);">tooltip</b> will be generated to show the relevant information of that particular bar.
+                <br><br>After about a decade, the number of students has remained almost <b style="color:rgb(0, 192, 218);">unchanged</b>.
+            </p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <br>
+    <br>
+
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis4"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-left">
+            <div style="color: rgba(123, 7, 177, 0.301);">
+                <h2>Number of Enrolled Students in Different Types of Schools</h2>
+            </div>
+            <p>The <b style="color:rgba(123, 7, 177, 0.301);">grouped bar chart</b> illustrates the number of enrolled students in both government and non-government schools by each state in Australia in 2018.
+                <br><br>When hovering over a bar, a <b style="color:rgb(202, 43, 43);">tooltip</b> will be generated to show the relevant information of that particular bar. 
+                <br><br>By clicking on the name of the types of schools in the <b style="color:rgb(202, 43, 43);">legend</b>, the graph will highlight the selected bars and inofrmation of the specific type of school in the visualisation.
+                <br><br>Non-government schools are more <b style="color:rgba(205, 103, 252, 0.76);">popular</b> than government schools in all of the states within Australia, especially in states with high population density.
+ 
+            </p>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+
+
+    
+  
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/XiaotongLi99" target="_blank">Xiaotong Li</a>. The datasource is from the <a href="https://www.pc.gov.au/research/ongoing/report-on-government-services" target="_blank">Report on Government Services</href>.</p>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var spec1 = "map.vg.json";
+  var spec2= "stacked bar.vg.json";
+  var spec3= "plot.vg.json";
+  var spec4= "grouped bar.vg.json";
+
+  vegaEmbed('#vis1', spec1, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+   vegaEmbed('#vis2', spec2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis3', spec3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis4', spec4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>
