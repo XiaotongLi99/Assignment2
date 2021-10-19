@@ -1,0 +1,64 @@
+  
+   {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": { 
+        "url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/data/diverging%20bar.csv"
+    },
+    "transform": [
+      {"filter": "datum.year == 2018"},
+      {"calculate": "datum.Type == 2 ? 'Government Schools' : 'Non-Government Schools'", "as": "Types of Schools"}
+    ],
+    "selection": {
+        "type_highlight": {
+        "type": "multi",
+        "fields": ["Types of Schools"],
+        "bind": "legend"
+        }
+        },
+    "width": {"step": 36},
+    "height": 300,
+    "title": "Enrolled students in government and non-government schools by states",
+    "background": "#e0d9e2",     
+    "mark": "bar",
+    "encoding": {
+      "column": {
+        "field": "state", "type": "nominal", "spacing": 10,
+        "header": {"titleOrient": "bottom", "labelPadding": -320},
+        "title": "States"
+      },
+      "y": {
+        "field": "Enrolled students",
+        
+        "axis": {"grid": false}, 
+        "type": "quantitative"
+      },
+      "x": {
+        "field": "Types of Schools",
+        "axis": null, 
+        "type": "nominal"
+      },
+      "color": {
+        "field": "Types of Schools",
+        "scale": {
+            "scheme": "set3"
+        },
+        "legend":{"legendX":530, "legendY":0,"titleFontSize":12, "orient":"none","padding":1, "titleAlign":"left"}    
+      },
+      "opacity": {
+        "condition": {"selection": "type_highlight", "value": 0.7},
+        "value": 0.2
+        },
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "States"},
+        {"field": "year", "type": "nominal", "title": "Year"},
+        {"field": "Types of Schools", "type": "nominal"},
+        {"field": "Enrolled students", "type": "quantitative", "format": ","}
+        ]
+    },
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
+    }
+  }
+  
+ 

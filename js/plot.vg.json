@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Stock prices of 5 Tech Companies over Time.",
+    "data": {"url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/data/plot.csv"},
+    "width": 600,
+    "height": 400,
+    "title": "Enrolled students in government schools over years",
+    "background": "#eff7f6",     
+    "params": [
+        
+        {
+        "name": "Continent_selection",
+        "bind": {
+        "input": "select",
+        "options": [
+        null,
+        "NSW",
+        "VIC",
+        "QLD",
+        "WA",
+        "SA",
+        "TAS",
+        "ACT",
+        "NT"
+        ],
+        "labels":[
+          "Show All",
+          "NSW",
+          "VIC",
+          "QLD",
+          "WA",
+          "SA",
+          "TAS",
+          "ACT",
+          "NT"
+          ],
+          "name": "State Selection: "
+          }
+          }
+          ],
+    "mark": {
+      "type": "line",
+      "point": {
+        "filled": false,
+        "fill": "white"
+      }
+    },
+    "transform": [
+        {"filter": "Continent_selection == null || datum.state == Continent_selection"}
+      ],
+    "encoding": {
+      "x": {"field": "year",
+        "timeUnit": "year",
+        "title": "Year",
+        "axis": {"grid": false}},
+      "y": {"field": "Enrolled students in government schools", 
+        "type": "quantitative",
+        "axis": {"grid": false}},
+      "color": {"field": "state",
+        "title": "States", 
+        "type": "nominal",
+        "scale": {
+            "domain": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT", "Australia"],
+            "scheme": "accent"
+        },
+        "legend":{"legendX":600, "legendY":0,"titleFontSize":10, "orient":"none","padding":5, "titleAlign":"left"}    
+      },
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "States"},
+        {"field": "year", "timeUnit": "year", "type": "nominal", "title": "Year"},
+        {"field": "Enrolled students in government schools", "type": "quantitative", "format": ","}
+        ]
+    }
+  }
+  

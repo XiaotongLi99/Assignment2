@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "vconcat": [
+      {
+        "width": 620,
+        "height": 400,
+        "title": "Number of Schools And Staff in 2018",
+        "projection": {"type": "mercator"},
+        "layer": [
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/js/A2%20topo.json",
+              "format": {"type": "topojson", "feature": "SA4_2021_AUST_GDA2020"}
+            },
+            "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+          },
+          {
+            "data": {
+                "url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/data/edited.csv"
+            },
+            "encoding": {
+              "longitude": {"field": "longitude", "type": "quantitative"},
+              "latitude": {"field": "latitude", "type": "quantitative"}
+            },
+            "layer": [
+              {"mark": {"type": "circle", "color": "white", "opacity": 0}},
+              {
+                "mark": {"type": "text", "dx": -10, "dy": -8},
+                "encoding": {"text": {"field": "state", "type": "nominal"}}
+              }
+            ]
+          },
+          {
+            "data": {
+                "url": "https://raw.githubusercontent.com/XiaotongLi99/Assignment2/main/data/edited.csv"
+            },
+            "mark": {"type": "circle"},
+            "encoding": {
+              "color": {
+                "field": "School staff",
+                "type": "quantitative",
+                "scale": {"scheme": "reds"},
+                "legend":{"legendX":620, "legendY":0,"titleFontSize":10, "orient":"none","padding":5, "titleAlign":"left"}
+              },
+                
+              "longitude": {"field": "longitude", "type": "quantitative"},
+              "latitude": {"field": "latitude", "type": "quantitative"},
+              "tooltip": [
+                {"field": "state", "type": "nominal"},
+                {"field": "Number of schools", "type": "quantitative", "format": ","},
+                {"field": "School staff", "type": "quantitative", "format": ","}
+
+              ],
+              "size": {
+                "field": "Number of schools",
+            "type": "quantitative",
+            "scale": {"domain": [100, 3200]},
+            "legend":{"legendX":620, "legendY":240,"titleFontSize":10, "orient":"none","padding":5, "titleAlign":"left"}
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "config": {}
+  }
+
+        
